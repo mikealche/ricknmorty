@@ -11,7 +11,11 @@ const FavoriteCharactersContext = createContext(
 );
 
 const ASYNC_STORAGE_KEY = "favoriteCharacters";
-export const FavoriteCharactersProvider = ({ children }) => {
+export const FavoriteCharactersProvider = ({
+  children,
+}: {
+  children: JSX.Element | JSX.Element[];
+}) => {
   const [favoriteCharacters, setFavoriteCharacters] = useState<number[]>([]);
   const [hasInitialized, setHasInitialized] = useState(false);
 
