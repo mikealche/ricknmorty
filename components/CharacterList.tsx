@@ -1,13 +1,5 @@
-import { useQuery } from "@apollo/client";
-import {
-  ActivityIndicator,
-  ScrollView,
-  StyleSheet,
-  View,
-  Text,
-} from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 
-import { CHARACTERS } from "../queries/GQLQueries";
 import { Character } from "../types";
 import CharacterListItem from "./CharacterListItem";
 

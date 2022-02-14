@@ -3,6 +3,7 @@ import { useState } from "react";
 import {
   ActivityIndicator,
   Image,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -31,18 +32,12 @@ const Pagination = ({
 
   return (
     <LinearGradient
-      style={{
-        paddingVertical: 10,
-        paddingHorizontal: 5,
-        backgroundColor: "purple",
-        justifyContent: "space-between",
-        flexDirection: "row",
-        alignItems: "center",
-      }}
+      style={styles.container}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
       colors={[theme.primaryAccentColor, theme.primaryBackgroundColor]}
     >
+      {/* Prev page button */}
       <TouchableOpacity onPress={() => info.prev && setPage(info.prev)}>
         <Text style={{ textAlign: "center", fontSize: 20 }}>👈</Text>
         <Text
@@ -53,16 +48,12 @@ const Pagination = ({
           Next page
         </Text>
       </TouchableOpacity>
+
+      {/* Pagination indicator */}
       <View style={{ justifyContent: "center", alignItems: "center" }}>
         <Image
           source={require("../assets/rickandmorty.png")}
-          style={{
-            width: 150,
-            height: 50,
-            resizeMode: "contain",
-            marginRight: 10,
-            borderColor: "purple",
-          }}
+          style={styles.image}
         />
         {isLoading ? (
           <ActivityIndicator size={20} />
@@ -79,6 +70,8 @@ const Pagination = ({
           </Text>
         )}
       </View>
+
+      {/* Next page button */}
       <TouchableOpacity onPress={() => info.next && setPage(info.next)}>
         <Text style={{ textAlign: "center", fontSize: 20 }}>👉</Text>
         <Text
@@ -92,5 +85,23 @@ const Pagination = ({
     </LinearGradient>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+    backgroundColor: "purple",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  image: {
+    width: 150,
+    height: 50,
+    resizeMode: "contain",
+    marginRight: 10,
+    borderColor: "purple",
+  },
+});
 
 export default Pagination;

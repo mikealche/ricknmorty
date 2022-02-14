@@ -6,7 +6,7 @@ import theme from "../theme";
 import { Character, ListProps } from "../types";
 
 const CharacterListItem = ({ character }: { character: Character }) => {
-  const { isFavorite, favoriteCharacters } = useFavoriteCharacters();
+  const { isFavorite } = useFavoriteCharacters();
 
   const navigation = useNavigation<ListProps["navigation"]>();
 
@@ -21,25 +21,11 @@ const CharacterListItem = ({ character }: { character: Character }) => {
     >
       <View>
         <Image style={styles.avatar} source={{ uri: character.image }} />
-        <Text
-          style={{
-            fontSize: 30,
-            position: "absolute",
-            bottom: -10,
-            right: 10,
-          }}
-        >
+        <Text style={styles.favoriteStar}>
           {isFavorite(character.id) ? "✨" : ""}
         </Text>
       </View>
-      <View
-        style={{
-          justifyContent: "space-between",
-          flexDirection: "row",
-          flex: 1,
-          alignItems: "center",
-        }}
-      >
+      <View style={styles.listText}>
         <Text
           key={character.name}
           style={{
@@ -55,6 +41,18 @@ const CharacterListItem = ({ character }: { character: Character }) => {
 
 export default CharacterListItem;
 const styles = StyleSheet.create({
+  favoriteStar: {
+    fontSize: 30,
+    position: "absolute",
+    bottom: -10,
+    right: 10,
+  },
+  listText: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    flex: 1,
+    alignItems: "center",
+  },
   listItem: {
     flexDirection: "row",
     alignItems: "center",
