@@ -1,6 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
+import theme from "../theme";
 
 const GradientButton = ({
   children,
@@ -19,7 +20,7 @@ const GradientButton = ({
         }}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
-        colors={["#6d0083", "#370042"]}
+        colors={[theme.primaryAccentColor, theme.primaryBackgroundColor]}
       >
         <Text
           style={{

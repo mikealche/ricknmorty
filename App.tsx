@@ -3,6 +3,7 @@ import { StatusBar } from "react-native";
 
 import AppRouter from "./AppRouter";
 import { FavoriteCharactersProvider } from "./contexts/FavoriteCharacters";
+import theme from "./theme";
 
 const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql",
@@ -13,7 +14,7 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <FavoriteCharactersProvider>
-        <StatusBar backgroundColor={"#370042"} />
+        <StatusBar backgroundColor={theme.primaryAccentColor} />
         <AppRouter />
       </FavoriteCharactersProvider>
     </ApolloProvider>

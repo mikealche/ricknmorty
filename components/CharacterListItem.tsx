@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { useFavoriteCharacters } from "../contexts/FavoriteCharacters";
+import theme from "../theme";
 import { Character, HomeProps } from "../types";
 
 const CharacterListItem = ({ character }: { character: Character }) => {
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     height: 72,
     marginRight: 20,
     borderRadius: 44,
-    borderColor: "purple",
+    borderColor: theme.primaryAccentColor,
     borderWidth: 2,
   },
 });

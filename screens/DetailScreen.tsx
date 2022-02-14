@@ -5,6 +5,7 @@ import { ActivityIndicator, Image, StyleSheet, Text, View } from "react-native";
 import GradientButton from "../components/GradientButton";
 import { useFavoriteCharacters } from "../contexts/FavoriteCharacters";
 import { SINGLE_CHARACTER } from "../queries/GQLQueries";
+import theme from "../theme";
 import { DetailsProps } from "../types";
 
 const DetailScreen = ({ navigation, route }: DetailsProps) => {
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     height: 200,
     marginRight: 10,
     borderRadius: 100,
-    borderColor: "purple",
+    borderColor: theme.primaryAccentColor,
     borderWidth: 2,
   },
 });
