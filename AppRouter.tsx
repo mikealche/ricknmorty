@@ -1,8 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import DetailScreen from "./screens/CharacterDetail";
-import CharacterList from "./screens/CharacterList";
+import DetailScreen from "./screens/DetailScreen";
+import CharacterList from "./screens/ListScreen";
 import { RootStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
