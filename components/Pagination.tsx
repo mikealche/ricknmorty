@@ -27,6 +27,8 @@ const Pagination = ({
   setPage: (page: number) => void;
   isLoading: boolean;
 }) => {
+  const totalResults = info.count ?? 0;
+
   return (
     <LinearGradient
       style={{
@@ -71,8 +73,9 @@ const Pagination = ({
               color: "white",
             }}
           >
-            Displaying {(page - 1) * 20} -{" "}
-            {Math.min((page - 1) * 20 + 20, info.count)} of {info.count} results
+            Displaying {(page - 1) * 20} —{" "}
+            {Math.min((page - 1) * 20 + 20, totalResults)} of {totalResults}{" "}
+            results
           </Text>
         )}
       </View>

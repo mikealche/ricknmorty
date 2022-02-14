@@ -11,12 +11,14 @@ const GradientButton = ({
   onPress: () => void;
 }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={{ width: "75%" }}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={{ width: "75%", borderRadius: 1000, overflow: "hidden" }}
+    >
       <LinearGradient
         style={{
           paddingVertical: 15,
           paddingHorizontal: 20,
-          borderRadius: 50,
         }}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
