@@ -1,3 +1,3 @@
 # Rick and Morty sample app
 
-https://www.loom.com/share/e2201b21b3db4180892514dcc5ded4e4
+https://www.loom.com/share/4943c0fb570f4a8d90899c1472a7dddd
