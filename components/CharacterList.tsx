@@ -8,34 +8,10 @@ import {
 } from "react-native";
 
 import { CHARACTERS } from "../queries/GQLQueries";
+import { Character } from "../types";
 import CharacterListItem from "./CharacterListItem";
 
-type Character = {
-  id: number;
-  name: string;
-  image: string;
-};
-
-const CharacterList = ({ filter }: { filter: string }) => {
-  const { loading, error, data } = useQuery(CHARACTERS, {
-    variables: {
-      page: 1,
-      name: filter,
-    },
-  });
-
-  if (loading)
-    return (
-      <View style={{ flex: 1, justifyContent: "center" }}>
-        <ActivityIndicator size={40} color="purple" />
-      </View>
-    );
-  if (error)
-    return (
-      <View style={{ flex: 1, justifyContent: "center" }}>
-        <Text style={{ textAlign: "center" }}>No results</Text>
-      </View>
-    );
+const CharacterList = ({ characters }: { characters: Character[] }) => {
   return (
     <ScrollView
       style={styles.container}
@@ -44,7 +20,7 @@ const CharacterList = ({ filter }: { filter: string }) => {
         paddingTop: 10,
       }}
     >
-      {data.characters.results.map((character: Character) => (
+      {characters.map((character: Character) => (
         <CharacterListItem key={character.id} character={character} />
       ))}
     </ScrollView>

@@ -5,18 +5,16 @@ export const CHARACTERS = gql`
     characters(page: $page, filter: { name: $name }) {
       info {
         count
+        count
+        pages
+        next
+        prev
       }
       results {
         id
         name
         image
       }
-    }
-    location(id: 1) {
-      id
-    }
-    episodesByIds(ids: [1, 2]) {
-      id
     }
   }
 `;
