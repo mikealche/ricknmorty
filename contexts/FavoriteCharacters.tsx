@@ -22,7 +22,6 @@ export const FavoriteCharactersProvider = ({
   // Initialize the state from AsyncStorage
   useEffect(() => {
     if (!hasInitialized) {
-      console.log("initializing");
       AsyncStorage.getItem(ASYNC_STORAGE_KEY).then((data) => {
         if (data) {
           const arrayOfFavoriteCharacters = JSON.parse(data);
@@ -36,13 +35,11 @@ export const FavoriteCharactersProvider = ({
   // Keep it in sync after initialized
   useEffect(() => {
     if (!hasInitialized) return;
-    console.log("Saving to storage");
     AsyncStorage.setItem(ASYNC_STORAGE_KEY, JSON.stringify(favoriteCharacters));
   }, [JSON.stringify(favoriteCharacters), hasInitialized]);
 
   const toggleCharacter = (selectedCharacterId: number) => {
     if (isFavorite(selectedCharacterId)) {
-      console.log("Removing", { selectedCharacterId });
       // Remove it
       setFavoriteCharacters(
         favoriteCharacters.filter(
@@ -50,7 +47,6 @@ export const FavoriteCharactersProvider = ({
         )
       );
     } else {
-      console.log("Adding", { selectedCharacterId });
       // Add it
       setFavoriteCharacters([...favoriteCharacters, selectedCharacterId]);
     }
