@@ -1,6 +1,12 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import theme from "../theme";
 
 type InfoType = {
@@ -14,10 +20,12 @@ const Pagination = ({
   info,
   page,
   setPage,
+  isLoading,
 }: {
   info: InfoType;
   page: number;
   setPage: (page: number) => void;
+  isLoading: boolean;
 }) => {
   return (
     <LinearGradient
@@ -54,15 +62,19 @@ const Pagination = ({
             borderColor: "purple",
           }}
         />
-        <Text
-          style={{
-            textAlign: "center",
-            color: "white",
-          }}
-        >
-          Displaying {(page - 1) * 20} - {(page - 1) * 20 + 20} of {info.count}{" "}
-          results
-        </Text>
+        {isLoading ? (
+          <ActivityIndicator size={20} />
+        ) : (
+          <Text
+            style={{
+              textAlign: "center",
+              color: "white",
+            }}
+          >
+            Displaying {(page - 1) * 20} -{" "}
+            {Math.min((page - 1) * 20 + 20, info.count)} of {info.count} results
+          </Text>
+        )}
       </View>
       <TouchableOpacity onPress={() => info.next && setPage(info.next)}>
         <Text style={{ textAlign: "center", fontSize: 20 }}>👉</Text>

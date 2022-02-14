@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ActivityIndicator, Text, View } from "react-native";
 
 import CharacterList from "../components/CharacterList";
@@ -17,6 +17,11 @@ const ListScreen = () => {
       name: text,
     },
   });
+
+  // When the text is changed, go back to page 1
+  useEffect(() => {
+    setPage(1);
+  }, [text]);
 
   const characters = data?.characters?.results || [];
   return (
@@ -37,6 +42,7 @@ const ListScreen = () => {
         info={data?.characters?.info || {}}
         setPage={setPage}
         page={page}
+        isLoading={loading}
       />
     </View>
   );

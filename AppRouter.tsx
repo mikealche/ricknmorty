@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import DetailScreen from "./screens/DetailScreen";
-import CharacterList from "./screens/ListScreen";
+import ListScreen from "./screens/ListScreen";
 import { RootStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -13,7 +13,7 @@ const AppRouter = () => {
       <Stack.Navigator initialRouteName="List">
         <Stack.Screen
           name="List"
-          component={CharacterList}
+          component={ListScreen}
           options={{
             headerShown: false,
           }}
