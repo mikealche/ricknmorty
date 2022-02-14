@@ -12,8 +12,16 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useFavoriteCharacters } from "../contexts/FavoriteCharacters";
+import { HomeProps } from "../types";
 
-const CharacterSearch = ({ navigation }) => {
+type Character = {
+  id: number;
+  name: string;
+  image: string;
+};
+
+const CharacterSearch = () => {
   const [text, onChangeText] = useState("");
 
   return (
@@ -46,15 +54,16 @@ const CharacterSearch = ({ navigation }) => {
   );
 };
 
-const CharacterList = ({ filter }) => {
-  const navigation = useNavigation();
+const CharacterList = ({ filter }: { filter: string }) => {
   const { loading, error, data } = useQuery(CHARACTERS, {
     variables: {
       page: 1,
       name: filter,
     },
   });
+  const navigation = useNavigation<HomeProps["navigation"]>();
 
+  const { isFavorite, favoriteCharacters } = useFavoriteCharacters();
   if (loading)
     return (
       <View style={{ flex: 1, justifyContent: "center" }}>
@@ -70,19 +79,46 @@ const CharacterList = ({ filter }) => {
         paddingTop: 10,
       }}
     >
-      {data.characters.results.map((character) => (
+      {data.characters.results.map((character: Character) => (
         <TouchableOpacity
           style={styles.listItem}
           key={character.id}
           onPress={() =>
             navigation.navigate("Details", {
               characterId: character.id,
-              title: "jajaja",
             })
           }
         >
-          <Image style={styles.avatar} source={{ uri: character.image }} />
-          <Text key={character.name}>{character.name}</Text>
+          <View>
+            <Image style={styles.avatar} source={{ uri: character.image }} />
+            <Text
+              style={{
+                fontSize: 30,
+                position: "absolute",
+                bottom: -10,
+                right: 10,
+              }}
+            >
+              {isFavorite(character.id) ? "✨" : ""}
+            </Text>
+          </View>
+          <View
+            style={{
+              justifyContent: "space-between",
+              flexDirection: "row",
+              flex: 1,
+              alignItems: "center",
+            }}
+          >
+            <Text
+              key={character.name}
+              style={{
+                fontWeight: isFavorite(character.id) ? "bold" : "500",
+              }}
+            >
+              {character.name}
+            </Text>
+          </View>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -107,14 +143,6 @@ const styles = StyleSheet.create({
     height: 72,
     marginRight: 20,
     borderRadius: 44,
-    borderColor: "purple",
-    borderWidth: 2,
-  },
-  bigImage: {
-    width: 200,
-    height: 200,
-    marginRight: 10,
-    borderRadius: 100,
     borderColor: "purple",
     borderWidth: 2,
   },

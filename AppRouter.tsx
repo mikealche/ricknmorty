@@ -1,28 +1,11 @@
-import { StatusBar } from "expo-status-bar";
-import {
-  ActivityIndicator,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  SafeAreaView,
-  TouchableOpacityBase,
-  TouchableOpacity,
-} from "react-native";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
-} from "@apollo/client";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import DetailScreen from "./screens/CharacterDetail";
 import CharacterList from "./screens/CharacterList";
+import { RootStackParamList } from "./types";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppRouter = () => {
   return (

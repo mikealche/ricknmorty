@@ -2,6 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { StatusBar } from "react-native";
 
 import AppRouter from "./AppRouter";
+import { FavoriteCharactersProvider } from "./contexts/FavoriteCharacters";
 
 const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql",
@@ -11,8 +12,10 @@ const client = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <StatusBar />
-      <AppRouter />
+      <FavoriteCharactersProvider>
+        <StatusBar />
+        <AppRouter />
+      </FavoriteCharactersProvider>
     </ApolloProvider>
   );
 }
