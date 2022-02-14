@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
 import CharacterList from "../components/CharacterList";
 import Pagination from "../components/Pagination";
@@ -28,12 +28,12 @@ const ListScreen = () => {
     <View style={{ flex: 1 }}>
       <SearchInput value={text} onChange={onChange} />
       {loading && (
-        <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={styles.background}>
           <ActivityIndicator size={40} color="purple" />
         </View>
       )}
       {error && (
-        <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={styles.background}>
           <Text style={{ textAlign: "center" }}>No results</Text>
         </View>
       )}
@@ -47,5 +47,13 @@ const ListScreen = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "white",
+  },
+});
 
 export default ListScreen;
