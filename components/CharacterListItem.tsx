@@ -3,12 +3,12 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { useFavoriteCharacters } from "../contexts/FavoriteCharacters";
 import theme from "../theme";
-import { Character, HomeProps } from "../types";
+import { Character, ListProps } from "../types";
 
 const CharacterListItem = ({ character }: { character: Character }) => {
   const { isFavorite, favoriteCharacters } = useFavoriteCharacters();
 
-  const navigation = useNavigation<HomeProps["navigation"]>();
+  const navigation = useNavigation<ListProps["navigation"]>();
 
   return (
     <TouchableOpacity

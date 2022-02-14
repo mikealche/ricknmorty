@@ -10,9 +10,9 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const AppRouter = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="List">
         <Stack.Screen
-          name="Home"
+          name="List"
           component={CharacterList}
           options={{
             headerShown: false,
