@@ -13,7 +13,7 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <FavoriteCharactersProvider>
-        <StatusBar />
+        <StatusBar backgroundColor={"#370042"} />
         <AppRouter />
       </FavoriteCharactersProvider>
     </ApolloProvider>

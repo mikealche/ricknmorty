@@ -10,3 +10,9 @@ export type DetailsProps = NativeStackScreenProps<
   RootStackParamList,
   "Details"
 >;
+
+export type Character = {
+  id: number;
+  name: string;
+  image: string;
+};
