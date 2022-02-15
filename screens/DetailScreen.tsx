@@ -67,16 +67,7 @@ const DetailScreen = ({ navigation, route }: DetailsProps) => {
         />
       </Svg>
 
-      <View
-        style={{
-          backgroundColor: theme.primarySublteBackgroundColor,
-          alignItems: "center",
-          justifyContent: "space-around",
-          flex: 1,
-          width: "100%",
-          zIndex: -1,
-        }}
-      >
+      <View style={styles.characterDescription}>
         <View style={styles.characterAttributes}>
           <ValueWithLabel label={"Status"} value={character.status} />
           <ValueWithLabel label={"Gender"} value={character.gender} />
@@ -98,8 +89,12 @@ const DetailScreen = ({ navigation, route }: DetailsProps) => {
 
 const ValueWithLabel = ({ label, value }: { label: string; value: any }) => {
   return (
-    <View style={{ alignItems: "center" }}>
-      <Text style={{ fontSize: 20, color: "gray" }}>{value}</Text>
+    <View
+      style={{
+        alignItems: "center",
+      }}
+    >
+      <Text style={{ fontSize: 30, color: "#616161" }}>{value}</Text>
       <Text style={{ fontSize: 14, color: "black", fontWeight: "bold" }}>
         {label}
       </Text>
@@ -115,6 +110,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: 10,
+    backgroundColor: "white",
+  },
+  characterDescription: {
+    backgroundColor: theme.primarySublteBackgroundColor,
+    alignItems: "center",
+    justifyContent: "space-around",
+    flex: 1,
+    width: "100%",
+    zIndex: -1,
   },
   characterAttributes: {
     flexDirection: "row",
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     borderRadius: 100,
     borderColor: theme.primaryAccentColor,
-    borderWidth: 2,
+    borderWidth: 10,
     top: 120,
     zIndex: 2,
   },

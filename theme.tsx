@@ -1,7 +1,7 @@
 const theme = {
-  primaryAccentColor: "#6d0083",
-  primaryBackgroundColor: "#370042",
-  primarySublteBackgroundColor: "#ebceff",
+  primaryAccentColor: "#00071d",
+  primaryBackgroundColor: "#001343",
+  primarySublteBackgroundColor: "#f0f0f0",
 };
 
 export default theme;
