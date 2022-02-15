@@ -29,6 +29,7 @@ const CharacterListItem = ({ character }: { character: Character }) => {
         <Text
           key={character.name}
           style={{
+            fontSize: 17,
             fontWeight: isFavorite(character.id) ? "bold" : "500",
           }}
         >
@@ -57,6 +58,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 10,
+    backgroundColor: "white",
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    borderRadius: 5,
   },
   avatar: {
     width: 72,
