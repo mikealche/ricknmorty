@@ -7,7 +7,7 @@ type FavoriteCharactersContext = {
   isFavorite: (characterId: number) => boolean;
 };
 const FavoriteCharactersContext = createContext(
-  {} as FavoriteCharactersContext
+  null as any as FavoriteCharactersContext
 );
 
 const ASYNC_STORAGE_KEY = "favoriteCharacters";

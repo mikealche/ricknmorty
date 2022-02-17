@@ -19,6 +19,16 @@ export const CHARACTERS = gql`
   }
 `;
 
+export const CHARACTERS_BY_IDS = gql`
+  query CharactersByIds($ids: [ID!]!) {
+    charactersByIds(ids: $ids) {
+      id
+      name
+      image
+    }
+  }
+`;
+
 export const SINGLE_CHARACTER = gql`
   query SingleCharacter($id: ID!) {
     character(id: $id) {

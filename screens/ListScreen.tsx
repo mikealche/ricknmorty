@@ -26,7 +26,6 @@ const ListScreen = () => {
   const characters = data?.characters?.results || [];
   return (
     <View style={{ flex: 1 }}>
-      <SearchInput value={text} onChange={onChange} />
       {loading && (
         <View style={styles.background}>
           <ActivityIndicator size={40} color="purple" />
@@ -37,6 +36,8 @@ const ListScreen = () => {
           <Text style={{ textAlign: "center" }}>No results</Text>
         </View>
       )}
+      <SearchInput value={text} onChange={onChange} />
+
       {characters && !error && <CharacterList characters={characters} />}
       <Pagination
         info={data?.characters?.info || {}}

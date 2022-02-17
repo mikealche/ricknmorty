@@ -3,6 +3,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 export type RootStackParamList = {
   List: undefined;
   Details: { characterId: number };
+  Favorites: undefined;
 };
 
 export type ListProps = NativeStackScreenProps<RootStackParamList, "List">;
