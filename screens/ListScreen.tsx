@@ -54,7 +54,6 @@ const ListScreen = () => {
           <Text style={{ textAlign: "center" }}>No results</Text>
         </View>
       )}
-      <SearchInput value={text} onChange={onChange} />
 
       {characters && !error && <CharacterList characters={characters} />}
       <Pagination

@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const AppRouter = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Favorites">
+      <Stack.Navigator initialRouteName="List">
         <Stack.Screen
           name="List"
           component={ListScreen}
