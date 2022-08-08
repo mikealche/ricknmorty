@@ -36,7 +36,7 @@ export const FavoriteCharactersProvider = ({
   useEffect(() => {
     if (!hasInitialized) return;
     AsyncStorage.setItem(ASYNC_STORAGE_KEY, JSON.stringify(favoriteCharacters));
-  }, [JSON.stringify(favoriteCharacters), hasInitialized]);
+  }, [favoriteCharacters, hasInitialized]);
 
   const toggleCharacter = (selectedCharacterId: number) => {
     if (isFavorite(selectedCharacterId)) {
