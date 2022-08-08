@@ -35,8 +35,14 @@ const ListScreen = () => {
   return (
     <View style={{ flex: 1 }}>
       <SearchInput value={text} onChange={onChange} />
-      <View style={{ alignItems: "center", flexDirection: "row" }}>
-        <Text>Dead only?</Text>
+      <View
+        style={{
+          alignItems: "center",
+          flexDirection: "row",
+          padding: 10,
+        }}
+      >
+        <Text style={{ marginRight: 10 }}>Dead only?</Text>
         <Switch
           value={status === "dead"}
           onValueChange={(v) => {
